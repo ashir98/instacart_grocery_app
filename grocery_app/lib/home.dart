@@ -55,12 +55,18 @@ class HomePage extends StatelessWidget {
                         price: value.itemList[index][2],
                         bgColor: value.itemList[index][3],
                         btnColor: value.itemList[index][4],
+                        onPressed: () {
+                          Provider.of<CartModel>(context ,listen: false).addItemsInCart(index);
+                        },
                       );
                     },
                   );
                 },
               ),
-            )
+            ),
+
+
+            
           ],
         ),
 

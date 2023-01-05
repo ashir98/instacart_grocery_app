@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CartModel with ChangeNotifier{
 
-  final _itemList = [
+  final List<dynamic> _itemList = [
 
     // [name, image, price, bgcolor]
     ["Strawberry" , "Assets/images/strawberry.png", "30.00", Colors.red[100], Colors.red ],
@@ -18,6 +18,43 @@ class CartModel with ChangeNotifier{
 
 
   get itemList => _itemList;
+
+  //// List of items in cart
+  
+  List _cartItems = [];
+
+  get cartItems => _cartItems;
+
+
+  /// to add items in cart
+  
+  void addItemsInCart(int index){
+    _cartItems.add(_itemList[index]);
+    notifyListeners();
+  }
+  
+
+  ///to remove items from cart
+  
+
+  void removeItemsFromCart(int index){
+
+    _cartItems.removeAt(index);
+    notifyListeners();
+
+  }
+  
+
+
+  ///to total the items in cart
+  String calculateTotal(){
+    double totalPrice = 0;
+    for(int i= 0 ; i <_cartItems.length ; i++){
+      totalPrice += double.parse(_cartItems[i][2]);
+
+    }
+    return totalPrice.toStringAsFixed(2);
+  }
 
   
 }

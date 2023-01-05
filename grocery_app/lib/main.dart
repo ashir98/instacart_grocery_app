@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grocery_app/Models/cart_model.dart';
 import 'package:grocery_app/home.dart';
+import 'package:grocery_app/splash.dart';
 import 'package:provider/provider.dart';
 
 void main(){
@@ -26,7 +27,7 @@ class InstaCart extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HomePage(),
+          home: SplashScreen(),
         );
       },
     );

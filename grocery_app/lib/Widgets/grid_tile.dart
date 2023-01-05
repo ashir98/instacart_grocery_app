@@ -10,6 +10,7 @@ class GroceryItemTile extends StatelessWidget {
   Color bgColor;
   String image;
   Color btnColor;
+  void Function()? onPressed;
   
   GroceryItemTile({
     super.key, 
@@ -17,7 +18,8 @@ class GroceryItemTile extends StatelessWidget {
     required this.image,
     required this.bgColor,
     required this.price,
-    required this.btnColor
+    required this.btnColor,
+    required this.onPressed
   });
   
   @override
@@ -45,9 +47,7 @@ class GroceryItemTile extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(10))
               ),
               color: btnColor,
-              onPressed: () {
-                
-              },
+              onPressed:onPressed,
               child: Text('\$'+price,style: TextStyle(fontSize: 15),),
             )
           ],
